@@ -69,7 +69,7 @@ window.addEventListener('load', function() {
         update(){
             this.angle += this.va;
             this.speedY += this.gravity;
-            this.x -= this.speedX;
+            this.x -= this.speedX + this.game.speed;
             this.y += this.speedY;
             if (this.y > this.game.height + this.size || this.x < 0 - this.size) 
             this.markedForDeletion = true;
@@ -79,9 +79,13 @@ window.addEventListener('load', function() {
             }
         }
         draw(context){
+            context.save();
+            context.translate(this.x, this.y);
+            context.rotate(this.angle);
             context.drawImage(this.image, this.frameX * this.spritesize, this.frameY * 
-            this.spritesize, this.spritesize, this.spritesize, this.x, this.y, this.size,
-            this.size);
+            this.spritesize, this.spritesize, this.spritesize, this.size * -0.5 ,
+            this.size * -0.5, this.size, this.size);
+            context.restore();
         }
     }
     class Player {
