@@ -145,7 +145,7 @@ window.addEventListener('load', function() {
             if (this.game.debug) context.strokeRect(this.x, this.y, this.width, this.height);
             context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height,
                 this.width, this.height, this.x, this.y, this.width, this.height);
-            context.font = '20px Helvetica';
+            context.font = '20px Bangers';
             context.fillText(this.lives, this.x, this.y);
         }
     }
@@ -236,7 +236,7 @@ window.addEventListener('load', function() {
         constructor(game){
             this.game = game;
             this.fontSize = 25;
-            this.fontFamily = 'Helvetica';
+            this.fontFamily = 'Bangers';
             this.color = 'white';
         }
         draw(context){
@@ -247,27 +247,27 @@ window.addEventListener('load', function() {
             context.shadowColor = 'black'; 
             context.font = this.fontSize + 'px' + this.fontFamily;
             //score
-            context.fillText('Score' + this.game.score, 20, 40);
+            context.fillText('Score :  ' + this.game.score, 20, 40);
             //timer
             // Using toFixed Method to clear the additional number of digits on the screen
             const formattedTime = (this.game.gameTime * 0.001).toFixed(1);
-            context.fillText('Timer: ' + formattedTime, 20, 100);
+            context.fillText('Timer :  ' + formattedTime, 20, 100);
             // game over messages
             if (this.game.gameOver){
                 context.textAlign = 'center';
                 let message1;
                 let message2;
                 if (this.game.score > this.game.winningScore){
-                    message1 = 'You Won!';
-                    message2 = 'Well Done!';
+                    message1 = 'Most Wondrous!';
+                    message2 = 'Well Done Explorer!';
                 } else {
-                    message1 = 'You lost!';
-                    message2 = 'Try again next time!';
+                    message1 = 'Blazes!';
+                    message2 = 'Get my repair kit and try again!';
                 }
                 context.font = '150px ' + this.fontFamily;
                 context.fillText(message1, this.game.width * 0.5, this.game.height * 0.5 - 40);
-                context.font = '75px ' + this.fontFamily;
-                context.fillText(message2, this.game.width * 0.5, this.game.height * 0.5 + 80);
+                context.font = '55px ' + this.fontFamily;
+                context.fillText(message2, this.game.width * 0.5, this.game.height * 0.5 + 60);
             }
             //ammo
             if (this.game.player.powerUp) context.fillStyle = '#ffffbd';
