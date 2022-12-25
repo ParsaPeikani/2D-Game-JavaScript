@@ -20,3 +20,8 @@
 #gears, #hivewhale, #drone, #smokeExplosion, #fireExplosion {
     display: none;
 }
+
+body {
+    background-color: #A21CEF;
+    text-align: center;
+  }
